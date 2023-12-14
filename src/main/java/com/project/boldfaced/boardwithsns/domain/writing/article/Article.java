@@ -7,6 +7,7 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +24,7 @@ public class Article extends Writing {
 
     private int count;
 
+    @Builder
     public Article(String content, boolean activated, Member member, Writing parentWriting, String title) {
         super(content, activated, member, parentWriting);
         this.title = title;

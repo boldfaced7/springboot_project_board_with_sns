@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,7 @@ public class Comment extends Writing {
     @JoinColumn(name = "ARTICLE_ID")
     private Article article;
 
+    @Builder
     public Comment(String content, boolean activated, Member member, Writing parentWriting, Article article) {
         super(content, activated, member, parentWriting);
         this.article = article;
