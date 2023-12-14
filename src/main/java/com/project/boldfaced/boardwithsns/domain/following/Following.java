@@ -2,7 +2,6 @@ package com.project.boldfaced.boardwithsns.domain.following;
 
 import com.project.boldfaced.boardwithsns.domain.BaseEntity;
 import com.project.boldfaced.boardwithsns.domain.member.Member;
-import com.project.boldfaced.boardwithsns.domain.writing.Writing;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -20,12 +19,12 @@ public class Following extends BaseEntity {
     private Member member;
 
     @ManyToOne
-    @JoinColumn(name = "WRITING_ID")
-    private Writing writing;
+    @JoinColumn(name = "TARGET_ID")
+    private Member target;
 
     @Builder
-    public Following(Member member, Writing writing) {
+    public Following(Member member, Member target) {
         this.member = member;
-        this.writing = writing;
+        this.target = target;
     }
 }
